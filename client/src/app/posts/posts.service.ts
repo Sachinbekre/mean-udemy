@@ -2,19 +2,18 @@ import { Injectable } from '@angular/core';
 import { Post } from '../model/Post';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsService {
-  posts:Post[]=[];
+  posts: Post[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  getPost(){
+  getPost() {
     return this.posts;
   }
 
-  addPost(post:any){
+  addPost(post: any) {
     this.posts.push(post);
-    console.log(this.posts)
   }
 }
