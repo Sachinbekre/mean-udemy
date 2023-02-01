@@ -9,23 +9,19 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent {
-  title: string='';
-  content: string='';
+  title: string = '';
+  content: string = '';
 
-  constructor(
-    private postService:PostsService
-  ){
+  constructor(private postService: PostsService) {}
 
-  }
-
-  savePost(postForm:NgForm) {
-    if(postForm.invalid){
+  savePost(postForm: NgForm) {
+    if (postForm.invalid) {
       return;
     }
-    const post:Post = {
-      title:postForm.value.title,
-      content:postForm.value.content
-    }
+    const post: Post = {
+      title: postForm.value.title,
+      content: postForm.value.content,
+    };
     this.postService.addPost(post);
     postForm.resetForm();
   }
