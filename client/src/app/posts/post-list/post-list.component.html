@@ -1,0 +1,19 @@
+
+<app-create-post></app-create-post>
+
+<div class="post-list" *ngFor="let item of storedPost">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.title}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-label> {{item.content}}</mat-label>
+      <mat-action-row>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
