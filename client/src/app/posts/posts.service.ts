@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '../model/Post';
 
@@ -7,13 +8,18 @@ import { Post } from '../model/Post';
 export class PostsService {
   posts: Post[] = [];
 
-  constructor() {}
+  constructor(
+    private http:HttpClient
+  ) {}
 
   getPost() {
-    return this.posts;
+    let url = 'http://localhost:3000/api/posts';
+    return this.http.get(url);;
   }
 
-  addPost(post: any) {
-    this.posts.push(post);
+  addPost(post: Post) {
+    let url = 'http://localhost:3000/api/posts';
+    return this.http.post<{message:string}>(url,post)
+    // this.posts.push(post);
   }
 }

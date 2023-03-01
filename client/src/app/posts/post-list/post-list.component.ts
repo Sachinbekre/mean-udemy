@@ -11,6 +11,11 @@ export class PostListComponent implements OnInit {
   storedPost: Post[] = [];
   constructor(private postService: PostsService) {}
   ngOnInit() {
-    this.storedPost = this.postService.getPost();
+    this.postService.getPost().subscribe((res:any) => {
+      console.log("res",res);
+      this.storedPost = res.posts;
+
+    })
+    // this.storedPost = this.postService.getPost();
   }
 }

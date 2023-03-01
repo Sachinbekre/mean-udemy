@@ -22,7 +22,10 @@ export class CreatePostComponent {
       title: postForm.value.title,
       content: postForm.value.content,
     };
-    this.postService.addPost(post);
+    this.postService.addPost(post).subscribe(res =>{
+      console.log('post',res);
+
+    });
     postForm.resetForm();
   }
 }
